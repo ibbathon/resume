@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descriptor: MyString
+  name: MyString
+  address: MyString
+  phone: MyString
+  email: MyString
+  active: false
+
+two:
+  descriptor: MyString
+  name: MyString
+  address: MyString
+  phone: MyString
+  email: MyString
+  active: false

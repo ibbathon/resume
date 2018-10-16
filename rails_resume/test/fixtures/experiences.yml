@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  organization: MyString
+  job_title: MyString
+  location: MyString
+  short_org: MyString
+  date_from: 2018-10-15
+  date_to: 2018-10-15
+  text_from: MyString
+  text_to: MyString
+  section: one
+
+two:
+  organization: MyString
+  job_title: MyString
+  location: MyString
+  short_org: MyString
+  date_from: 2018-10-15
+  date_to: 2018-10-15
+  text_from: MyString
+  text_to: MyString
+  section: two
