@@ -1,0 +1,15 @@
+[Unit]
+Description=Resume Rails Server
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Environment=PATH=/home/ibb/.gem/ruby/2.5.0/bin
+WorkingDirectory=/home/ibb/resume/rails_resume
+ExecStart=/usr/bin/bash -lc 'bundle exec rails s -e production -p 80'
+TimeoutSec=15
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
