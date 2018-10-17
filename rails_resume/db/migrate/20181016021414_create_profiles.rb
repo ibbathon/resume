@@ -6,7 +6,7 @@ class CreateProfiles < ActiveRecord::Migration[5.2]
       t.string :address
       t.string :phone
       t.string :email
-      t.boolean :primary
+      t.boolean :primary, default: false
 
       t.timestamps
     end

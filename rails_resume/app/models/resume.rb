@@ -1,3 +1,5 @@
 class Resume < ApplicationRecord
-	validates :primary, uniqueness: true, if: :primary?
+  has_many :sections
+  belongs_to :profile
+  validates :primary, uniqueness: true, if: :primary?
 end

@@ -1,3 +1,23 @@
-<h1>Resume#show</h1>
-<p>Find me in app/views/resume/show.html.erb</p>
-<p><%= @resume.inspect %></p>
+<% if flash[:alert] %>
+  <div class="alert"><%= flash[:alert] %></div>
+<% end %>
+
+<h1><%= @resume.profile.name %></h1>
+<section id="contact_info">
+  <h2>Contact Information</h2>
+  <p><%= @resume.profile.address %></p>
+  <p><%= @resume.profile.phone %></p>
+  <p><%= @resume.profile.email %></p>
+</section>
+
+<% @resume.sections.order(:display_order).each do |section| %>
+  <h2><%= section.title %></h2>
+  <% section.experiences.order(:display_order).each do |exp| %>
+    <h3><%= experience_header exp %></h3>
+    <ul>
+      <% exp.items.order(:display_order).each do |item| %>
+        <li><%= item.text %></li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
