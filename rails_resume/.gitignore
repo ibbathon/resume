@@ -33,3 +33,6 @@
 
 # Ignore db/schema.rb; it can be recreated easily anyways, and it just causes headaches
 db/schema.rb
+
+# Don't store PIDs
+shared/pids/*
