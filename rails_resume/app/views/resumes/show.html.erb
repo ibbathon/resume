@@ -10,12 +10,13 @@
   <p><%= @resume.profile.email %></p>
 </section>
 
-<% @resume.sections.order(:display_order).each do |section| %>
+<% @resume.resume_sections.order(:display_order).each do |rs| %>
+  <% section = rs.section %>
   <h2><%= section.title %></h2>
   <% section.experiences.order(:display_order).each do |exp| %>
     <h3><%= experience_header exp %></h3>
     <ul>
-      <% exp.items.order(:display_order).each do |item| %>
+      <% exp.items.resume_limited(@resume).order(:display_order).each do |item| %>
         <li><%= item.text %></li>
       <% end %>
     </ul>
