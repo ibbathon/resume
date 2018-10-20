@@ -3,21 +3,21 @@
 <% end %>
 
 <h1><%= @resume.profile.name %></h1>
-<section id="contact_info">
+<address id="contact_info">
   <h2>Contact Information</h2>
   <p><%= @resume.profile.address %></p>
   <p><%= @resume.profile.phone %></p>
   <p><%= @resume.profile.email %></p>
-</section>
+</address>
 
 <% @resume.resume_sections.order(:display_order).each do |rs| %>
   <% section = rs.section %>
-  <h2><%= section.title %></h2>
+  <h2 class="section"><%= section.title %></h2>
   <% section.experiences.order(:display_order).each do |exp| %>
-    <h3><%= experience_header exp %></h3>
+    <h3 class="experience"><%= experience_header exp %></h3>
     <ul>
       <% exp.items.resume_limited(@resume).order(:display_order).each do |item| %>
-        <li><%= item.text %></li>
+        <li class="item"><%= item.text %></li>
       <% end %>
     </ul>
   <% end %>
