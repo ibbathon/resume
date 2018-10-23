@@ -8,9 +8,9 @@ module ResumeHelper
 
     org = "#{org} (#{exp.short_org})" if org && exp.short_org
 
-    org = org ? "<span class=\"organization_name\">#{org}</span>" : nil
+    org = org ? "<span class=\"organization\">#{org}</span>" : nil
     title = title ? "<span class=\"job_title\">#{title}</span>" : nil
-    location = location ? "<span class=\"location_name\">#{location}</span>" : nil
+    location = location ? "<span class=\"location\">#{location}</span>" : nil
 
     description = [org,title,location].reject {|i| i.nil?}.join(', ')
     dates = [date_from,date_to].reject {|i| i.nil?}.join(' — ')
