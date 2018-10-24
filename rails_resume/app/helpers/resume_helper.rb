@@ -1,5 +1,5 @@
 module ResumeHelper
-  def experience_header exp
+  def experience_header_original exp
     org = exp.organization
     title = exp.job_title
     location = exp.location

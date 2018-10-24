@@ -1,24 +1,15 @@
+<% content_for :head do %>
+  <% if @style.filename %>
+    <%= stylesheet_link_tag @style.filename %>
+  <% else %>
+    <style>
+      <%= @style.style_text %>
+    </style>
+  <% end %>
+<% end %>
+
 <% if flash[:alert] %>
   <div class="alert"><%= flash[:alert] %></div>
 <% end %>
 
-<h1><%= @resume.profile.name %></h1>
-<address id="contact_info">
-  <h2>Contact Information</h2>
-  <p><%= @resume.profile.address %></p>
-  <p><%= @resume.profile.phone %></p>
-  <p><%= @resume.profile.email %></p>
-</address>
-
-<% @resume.resume_sections.order(:display_order).each do |rs| %>
-  <% section = rs.section %>
-  <h2 class="section"><%= section.title %></h2>
-  <% section.experiences.order(:display_order).each do |exp| %>
-    <h3 class="experience"><%= experience_header exp %></h3>
-    <ul>
-      <% exp.items.resume_limited(@resume).order(:display_order).each do |item| %>
-        <li class="item"><%= item.text %></li>
-      <% end %>
-    </ul>
-  <% end %>
-<% end %>
+<%= render partial: @layout.uid %>

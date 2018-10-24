@@ -8,9 +8,14 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= yield :head %>
   </head>
 
   <body>
+      <!--[if IE]>
+      <p>This site uses HTML5 and CSS3 styling. It may not appear correctly on older browsers. <a href="https://www.google.com/chrome" target="_blank">Please get</a> <a href="https://www.mozilla.org/firefox" target="_blank">a modern</a> <a href="https://www.opera.com" target="_blank">browser</a> if at all possible.</p>
+      <![endif]-->
     <%= yield %>
   </body>
 </html>

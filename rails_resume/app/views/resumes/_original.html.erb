@@ -1,0 +1,26 @@
+<header id="profile_name"><%= @resume.profile.name %></header>
+<header id="preferred_job"><%= @resume.preferred_job %></header>
+<header id="preferred_name"><%= @resume.profile.preferred_name %></header>
+
+<% @resume.resume_sections.order(:display_order).each do |rs| %>
+  <% section = rs.section %>
+  <section id="<%= section.uid %>">
+    <header><%= section.title %></header>
+    <% section.experiences.order(:display_order).each do |exp| %>
+      <article>
+        <header><%= send(@layout.experience_header,exp) %></header>
+        <ul>
+          <% exp.items.resume_limited(@resume).order(:display_order).each do |item| %>
+            <li class="item"><%= item.text %></li>
+          <% end %>
+        </ul>
+      </article>
+    <% end %>
+  </section>
+<% end %>
+
+<nav id="sandwich">
+</nav>
+
+<nav id="external_links">
+</nav>
