@@ -1,10 +1,12 @@
-<header id="profile_name"><%= @resume.profile.name %></header>
-<header id="preferred_job"><%= @resume.preferred_job %></header>
-<header id="preferred_name"><%= @resume.profile.preferred_name %></header>
+<header id="base_info">
+  <span id="profile_name"><%= @resume.profile.name %></span>
+  <span id="preferred_job"><%= @resume.preferred_job %></span>
+  <span id="preferred_name"><%= @resume.profile.preferred_name %></span>
+</header>
 
 <% @resume.resume_sections.order(:display_order).each do |rs| %>
   <% section = rs.section %>
-  <section id="<%= section.uid %>">
+  <section id="<%= section.uid %>" class="<%= section.display_condensed ? "display_condensed" : "" %>">
     <header><%= section.title %></header>
     <% section.experiences.order(:display_order).each do |exp| %>
       <article>
@@ -20,7 +22,14 @@
 <% end %>
 
 <nav id="sandwich">
+  <div id="sandwich_symbol">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 </nav>
 
 <nav id="external_links">
+  <a href="<%= @resume.profile.linkedin_url %>" id="linkedin_link" target="_blank"></a>
+  <a href="<%= @resume.profile.github_url %>" id="github_link" target="_blank"></a>
 </nav>

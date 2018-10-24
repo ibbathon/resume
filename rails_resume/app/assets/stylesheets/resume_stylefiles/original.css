@@ -1,7 +1,179 @@
-.experience .date_range {
+body {
+  margin: 0;
+}
+
+/* Header bar names and title */
+#base_info {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4em;
+  background-color: darkblue;
+}
+
+#profile_name {
+  position: absolute;
+  text-align: right;
+  top: 0.25em;
+  width: 45%;
+  left: 0;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: darkgray;
+}
+
+#preferred_job {
+  position: absolute;
+  text-align: left;
+  top: 0.25em;
+  width: 55%;
+  right: 0;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: darkgray;
+}
+
+#preferred_job::before {
+  content: '|';
+  color: lightblue;
+}
+
+#preferred_name {
+  position: absolute;
+  text-align: right;
+  top: 2.75em;
+  width: 40%;
+  left: 0;
+  font-size: 1em;
+  color: darkgray;
+}
+
+#preferred_name::before {
+  content: 'a.k.a. ';
+}
+
+@media only screen and (max-width: 800px) {
+  #profile_name {
+    font-size: 1.5em;
+  }
+
+  #preferred_job {
+    font-size: 1.5em;
+  }
+
+  #preferred_name {
+    font-size: 0.8em;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #profile_name {
+    top: 1em;
+    font-size: 1.0em;
+  }
+
+  #preferred_job {
+    top: 1em;
+    font-size: 1.0em;
+  }
+
+  #preferred_name {
+    width: 45%;
+  }
+}
+
+/* External links navigation */
+#external_links {
+  position: fixed;
+  top: 1em;
+  right: 0.5em;
+  width: 4.5em;
+  height: 2em;
+}
+
+#linkedin_link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2em;
+  height: 2em;
+  background-image: url('/images/protected/In-White-121px-R.png');
+  background-size: contain;
+}
+
+#github_link {
+  position: absolute;
+  top: 0;
+  right: 2.5em;
+  width: 2em;
+  height: 2em;
+  background-image: url('/images/protected/GitHub-Mark-120px-plus.png');
+  background-size: contain;
+  background-color: white;
+  border-radius: 1em;
+}
+
+/* Sections */
+section {
+  margin-top: 1.5em;
+  margin-left: 0.5em;
+}
+
+section > header {
+  margin-bottom: 0.2em;
+  font-size: 1.75em;
+  font-weight: bold;
+  border-bottom: 3px solid darkgray;
+}
+
+/* Experiences */
+article {
+  margin-left: 0.5em;
+  padding-left: 0.5em;
+  border-left: 2px solid lightgray;
+}
+
+article > header {
+  font-size: 1.25em;
+}
+
+article .date_range {
   float:right;
 }
 
 .job_title {
   text-decoration: underline;
+}
+
+.date_to:before {
+  content: "—"
+}
+
+/* Items list */
+article > ul {
+  margin-top: 0.25em;
+}
+
+.display_condensed li {
+  display: inline;
+}
+
+.display_condensed li:not(:last-child):after {
+  content: ", ";
+}
+
+/* Sandwich menu */
+#sandwich {
+  position: fixed;
+  left: 0.5em;
+  top: 0.5em;
+}
+
+#sandwich_symbol div {
+  width: 2.5em;
+  height: 0.3em;
+  background-color: white;
+  margin: 0.4em 0;
+  border-radius: 0.1em;
 }

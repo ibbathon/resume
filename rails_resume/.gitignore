@@ -36,3 +36,6 @@ db/schema.rb
 
 # Don't store PIDs
 shared/pids/*
+
+# Don't store the protected images, which have licensing issues
+public/images/protected
