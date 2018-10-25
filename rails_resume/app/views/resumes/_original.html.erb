@@ -7,17 +7,27 @@
 <% @resume.resume_sections.order(:display_order).each do |rs| %>
   <% section = rs.section %>
   <section id="<%= section.uid %>" class="<%= section.display_condensed ? "display_condensed" : "" %>">
-    <header><%= section.title %></header>
-    <% section.experiences.order(:display_order).each do |exp| %>
-      <article>
-        <header><%= send(@layout.experience_header,exp) %></header>
-        <ul>
-          <% exp.items.resume_limited(@resume).order(:display_order).each do |item| %>
-            <li class="item"><%= item.text %></li>
-          <% end %>
-        </ul>
-      </article>
-    <% end %>
+    <h1><%= section.title %></h1>
+    <ul>
+      <% section.experiences.order(:display_order).each do |exp| %>
+        <li>
+          <ul class="experience_header">
+            <% if exp.organization %><li class="organization"><%= exp.organization %></li><% end %>
+            <% if exp.job_title %><li class="job_title"><%= exp.job_title %></li><% end %>
+            <% if exp.location %><li class="location"><%= exp.location %></li><% end %>
+          </ul>
+          <ul class="date_range">
+            <% if exp.text_from || exp.date_from %><li class="date_from"><%= exp.text_from ? exp.text_from : exp.date_from %></li><% end %>
+            <% if exp.text_to || exp.date_to %><li class="date_to"><%= exp.text_to ? exp.text_to : exp.date_to %></li><% end %>
+          </ul>
+          <ul class="items_list">
+            <% exp.items.resume_limited(@resume).order(:display_order).each do |item| %>
+              <li class="item"><%= item.text %></li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+    </ul>
   </section>
 <% end %>
 

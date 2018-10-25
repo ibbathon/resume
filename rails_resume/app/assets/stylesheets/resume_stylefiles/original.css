@@ -1,5 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+* {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
 body {
   margin: 0;
+}
+
+.hidden {
+  display: none!important;
 }
 
 /* Header bar names and title */
@@ -15,9 +25,8 @@ body {
 #profile_name {
   position: absolute;
   text-align: right;
-  top: 0.25em;
-  width: 45%;
-  left: 0;
+  top: 0em;
+  right: 55%;
   font-size: 2.5em;
   font-weight: bold;
   color: darkgray;
@@ -26,9 +35,8 @@ body {
 #preferred_job {
   position: absolute;
   text-align: left;
-  top: 0.25em;
-  width: 55%;
-  right: 0;
+  top: 0em;
+  left: 45%;
   font-size: 2.5em;
   font-weight: bold;
   color: darkgray;
@@ -42,10 +50,9 @@ body {
 #preferred_name {
   position: absolute;
   text-align: right;
-  top: 2.75em;
-  width: 40%;
-  left: 0;
-  font-size: 1em;
+  top: 2em;
+  right: 55%;
+  font-size: 1.25em;
   color: darkgray;
 }
 
@@ -55,31 +62,46 @@ body {
 
 @media only screen and (max-width: 800px) {
   #profile_name {
-    font-size: 1.5em;
+    font-size: 3.5vw;
   }
-
   #preferred_job {
-    font-size: 1.5em;
+    font-size: 3.5vw;
   }
-
   #preferred_name {
-    font-size: 0.8em;
+    top: 1.4em;
+    font-size: 2.5vw;
   }
 }
 
 @media only screen and (max-width: 500px) {
   #profile_name {
-    top: 1em;
-    font-size: 1.0em;
+    font-size: 2em;
+    top: 0em;
+    left: 30%;
+    right: initial;
   }
-
   #preferred_job {
-    top: 1em;
     font-size: 1.0em;
+    top: 2em;
+    left: 30%;
   }
-
+  #preferred_job::before {
+    content: '';
+  }
   #preferred_name {
-    width: 45%;
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #profile_name {
+    left: 20%;
+  }
+  #preferred_job {
+    left: 20%;
+  }
+  #preferred_name {
+    left: 20%;
   }
 }
 
@@ -120,7 +142,7 @@ section {
   margin-left: 0.5em;
 }
 
-section > header {
+section > h1 {
   margin-bottom: 0.2em;
   font-size: 1.75em;
   font-weight: bold;
@@ -128,38 +150,65 @@ section > header {
 }
 
 /* Experiences */
-article {
-  margin-left: 0.5em;
-  padding-left: 0.5em;
+section > ul {
+  margin-bottom: 0;
+  margin-top: 0;
+  margin-left: 0em;
+  padding-left: 0;
+}
+
+section > ul > li {
   border-left: 2px solid lightgray;
+  padding-left: 0.5em;
+  margin-left: 0.5em;
+  margin-bottom: 1.0em;
+  list-style: none;
 }
 
-article > header {
-  font-size: 1.25em;
+.experience_header {
+  margin-left: 0em;
+  padding-left: 0em;
+  display: inline;
 }
 
-article .date_range {
-  float:right;
+.experience_header > li {
+  font-size: 1.5em;
+  display: inline;
+}
+
+.experience_header > li:not(:last-child):after {
+  content: ", ";
 }
 
 .job_title {
   text-decoration: underline;
 }
 
-.date_to:before {
-  content: "—"
+.date_range {
+  font-size: 1.5em;
+  display: inline;
+  float: right;
 }
 
-/* Items list */
-article > ul {
-  margin-top: 0.25em;
-}
-
-.display_condensed li {
+.date_range > li {
   display: inline;
 }
 
-.display_condensed li:not(:last-child):after {
+.date_to:before {
+  content: "— "
+}
+
+/* Items list */
+.items_list {
+  margin-top: 0.25em;
+  list-style-type: disc;
+}
+
+.display_condensed .items_list li {
+  display: inline;
+}
+
+.display_condensed .items_list li:not(:last-child):after {
   content: ", ";
 }
 
