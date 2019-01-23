@@ -108,32 +108,34 @@ body {
 /* External links navigation */
 #external_links {
   position: fixed;
-  top: 1em;
+  font-size: 1.25em;
+  margin-top: 0;
+  top: 0.25em;
   right: 0.5em;
-  width: 4.5em;
-  height: 2em;
+}
+
+#external_links a {
+  position: absolute;
+  text-decoration: none;
+  color: darkgray;
+}
+
+#external_links a:hover {
+  color: gray;
+}
+
+#external_links li {
+  list-style: none;
 }
 
 #linkedin_link {
-  position: absolute;
   top: 0;
   right: 0;
-  width: 2em;
-  height: 2em;
-  background-image: url('/images/protected/In-White-121px-R.png');
-  background-size: contain;
 }
 
 #github_link {
-  position: absolute;
-  top: 0;
-  right: 2.5em;
-  width: 2em;
-  height: 2em;
-  background-image: url('/images/protected/GitHub-Mark-120px-plus.png');
-  background-size: contain;
-  background-color: white;
-  border-radius: 1em;
+  top: 1.5em;
+  right: 0;
 }
 
 /* Sections */

@@ -6,6 +6,9 @@
       <%= @style.style_text %>
     </style>
   <% end %>
+  <% if @resume.profile.page_title %>
+    <title><%= @resume.profile.page_title %></title>
+  <% end %>
 <% end %>
 
 <% if flash[:alert] %>
